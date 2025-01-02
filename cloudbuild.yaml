@@ -1,0 +1,24 @@
+steps:
+  - name: 'node:20-alpine'
+    entrypoint: sh
+    env:
+      - REACT_APP_ROOT=https://releva.ai/loyalty
+      - REACT_APP_RELEVA_BASE_URL=https://releva.ai
+    args:
+      - -c
+      - npm install && npm run build
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args:
+      - rsync
+      - -Rd
+      - build
+      - gs://releva-survey-visualizer/loyalty
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - compute
+      - url-maps
+      - invalidate-cdn-cache
+      - releva-lb
+      - --path
+      - /loyalty/*
+timeout: '2000s'

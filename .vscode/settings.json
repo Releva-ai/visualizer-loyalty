@@ -1,0 +1,12 @@
+{
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "javascript.preferences.quoteStyle": "single",
+  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  "prettier.printWidth": 120,
+  "prettier.singleQuote": true
+}
