@@ -12,7 +12,7 @@ steps:
       - rsync
       - -Rd
       - build
-      - gs://releva-survey-visualizer/loyalty
+      - gs://releva-visualizer-loyalty/loyalty
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - compute
